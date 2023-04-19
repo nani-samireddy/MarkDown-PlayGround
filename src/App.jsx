@@ -1,34 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <h1 className="text-3xl font-black text-white p-10">MarkDown Editor</h1>
+      <div className="w-100vw h-100vh flex flex-row ">
+        <div className="w-50vw   h-full">
+          <textarea
+            className="w-full h-full p-4  outline-none resize-none"
+            name="rawMarkdown"
+            id="rawMarkdown"
+            placeholder="Enter your markdown here..."
+            res
+          ></textarea>
+        </div>
+        <div className="w-50vw h-full ">
+          <textarea
+            readOnly
+            className="w-full h-full p-4  outline-none"
+            name="markDownOutput"
+            id="markDownOutput"
+            placeholder="Your markdown will appear here..."
+          ></textarea>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
