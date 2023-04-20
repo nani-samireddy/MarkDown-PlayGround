@@ -1,30 +1,29 @@
 import { useState } from "react";
 import "./App.css";
+import ReactMarkdown from "react-markdown";
 
 function App() {
-  const [count, setCount] = useState(0);
-
+  const [rawMarkdown, setRawMarkdown] = useState("");
   return (
     <div className="App">
-      <h1 className="text-3xl font-black text-white p-10">MarkDown Editor</h1>
-      <div className="w-100vw h-100vh flex flex-row ">
-        <div className="w-50vw   h-full">
+      <h1 className="title">MD Playground</h1>
+      <div className=" outer-container">
+        <div className="raw-input-container">
           <textarea
-            className="w-full h-full p-4  outline-none resize-none"
+            className="raw-input"
             name="rawMarkdown"
             id="rawMarkdown"
             placeholder="Enter your markdown here..."
-            res
+            onChange={(e) => {
+              setRawMarkdown(e.target.value);
+              setMarkDownOutput(e.target.value);
+            }}
           ></textarea>
         </div>
-        <div className="w-50vw h-full ">
-          <textarea
-            readOnly
-            className="w-full h-full p-4  outline-none"
-            name="markDownOutput"
-            id="markDownOutput"
-            placeholder="Your markdown will appear here..."
-          ></textarea>
+        <div className="markdown-output-container ">
+          <div className="markdown-output">
+            <ReactMarkdown>{rawMarkdown}</ReactMarkdown>
+          </div>
         </div>
       </div>
     </div>
